@@ -3,19 +3,19 @@ import { createConnection } from 'typeorm'
 
 require('rootpath')()
 require('dotenv').config()
+
 const login = require('./src/get/getUser')
 const carInfo = require('./src/get/getCar')
 const registerUser = require('./src/create/createNewUser')
 const addCar = require('./src/create/createNewCar')
 const createEmail = require('./_services/emails.service')
-
 const express = require('express')
 const bodyParser = require('body-parser')
 const errorHandler = require('./_helpers/error-handler')
 const cors = require('cors')
 const app = express()
 
-app.get('/test', (req, res) => {
+app.get('/test', (res) => {
   res.send('test endpoint!')
 })
 
@@ -32,11 +32,9 @@ createConnection().then(async () => {
     console.log('Server started on 4000')
   })
 
-
-  app.get('/test2', (req, res) => {
+  app.get('/test2', (res) => {
     res.send('test2 endpoint!')
   })
-
 
   app.post('/users/authenticate', async (req, res) => {
     console.log('===================================\nfrom app.ts... /users/authenticate endpoint')
@@ -54,7 +52,6 @@ createConnection().then(async () => {
     }
   })
 
-
   app.post('/users/register', async (req, res) => {
     console.log('===================================\nfrom app.ts... /users/register endpoint')
 
@@ -70,7 +67,6 @@ createConnection().then(async () => {
 
     typeof (regUser) === 'string' ? res.json(regUser) : res.send('Register event has been logged')
   })
-
 
   app.post('/vehicles', async (req, res) => {
     console.log('===================================\nfrom app.ts... /vehicles endpoint')
@@ -89,7 +85,6 @@ createConnection().then(async () => {
     typeof (yourCar) === 'string' ? res.json(yourCar) : res.send('Vehicles event has been logged')
   })
 
-
   app.post('/emails', async (req, res) => {
     console.log('===================================\nfrom app.ts... /emails endpoint')
 
@@ -103,7 +98,6 @@ createConnection().then(async () => {
 
     res.send('Email event has been logged')
   })
-
 }).catch(error => console.log(error))
 
 // export the app

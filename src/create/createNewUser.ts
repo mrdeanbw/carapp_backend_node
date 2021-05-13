@@ -1,6 +1,5 @@
-import { getCustomRepository } from "typeorm"
-import { UserRepository } from "../repository/UserRepository"
-import bcrypt from 'bcryptjs'
+import { UserRepository } from '../repository/UserRepository'
+// import bcrypt from 'bcryptjs'
 
 export const createNewUser = async (email: string, password: string, firstName: string, lastName: string, license: number) => {
 
@@ -10,7 +9,6 @@ export const createNewUser = async (email: string, password: string, firstName: 
 
     // validate
     if (await userRepo.findByEmail(email)) {
-        //throw 'Username/Email: ' + email + ' is already taken'
         return 'Username/Email: ' + email + ' is already taken'
     }
 
@@ -19,7 +17,7 @@ export const createNewUser = async (email: string, password: string, firstName: 
     //     password = bcrypt.hashSync(password, 10)
     // }
 
-    var newUser = email && password ? await userRepo.createUser(email, password, firstName, lastName, license) : 'email and password cannot be empty'
+    let newUser = email && password ? await userRepo.createUser(email, password, firstName, lastName, license) : 'email and password cannot be empty'
     console.log('from createUser.ts ' + newUser)
 
     return newUser

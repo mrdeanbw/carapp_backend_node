@@ -19,23 +19,24 @@ describe('Self-send an email message with and without /emails', () => {
 
         // Searches the car in the database
         carRepo = new CarRepository()
+
+        // user Id 24 for testing
+        foundCar = await carRepo.findByUserId(24)
+
+        // create test message for email
+        carMessage = foundCar.lease + ', ' + foundCar.seats + ', ' + foundCar.year + ', ' + foundCar.make + ', ' + foundCar.model + ', ' + foundCar.trim + ', ' + foundCar.specs
     })
 
     afterAll(async () => {
-
         await connection.close()
     })
 
     test('Find car that belongs to user then email', async (done) => {
 
-        foundCar = await carRepo.findByUserId(24) // user Id 24 for testing
-
-        let service = 'gmail', user = 'alexanderlschalk', password = 'Hello@12345678', sender = user + '@' + service + '.com', receiver = sender
-        carMessage = foundCar.lease + ', ' + foundCar.seats + ', ' + foundCar.year + ', ' + foundCar.make + ', ' + foundCar.model + ', ' + foundCar.trim + ', ' + foundCar.specs
+        let service = 'gmail', user = 'als', password = 'myPassword', sender = user + '@' + service + '.com', receiver = sender
 
         newEmail = await sendgmail(service, user, password, sender, receiver, carMessage)
 
-        // the line of code below evaluates before sendgmail return the string
         expect(newEmail).toEqual('Email info validated')
         done()
     })
@@ -43,14 +44,10 @@ describe('Self-send an email message with and without /emails', () => {
 
     test('Find car that belongs to user but do not provide email password', async (done) => {
 
-        foundCar = await carRepo.findByUserId(24) // user Id 24 for testing
-
-        let service = 'gmail', user = 'alexanderlschalk', password = '', sender = user + '@' + service + '.com', receiver = sender
-        carMessage = foundCar.lease + ', ' + foundCar.seats + ', ' + foundCar.year + ', ' + foundCar.make + ', ' + foundCar.model + ', ' + foundCar.trim + ', ' + foundCar.specs
+        let service = 'gmail', user = 'als', password = '', sender = user + '@' + service + '.com', receiver = sender
 
         newEmail = await sendgmail(service, user, password, sender, receiver, carMessage)
 
-        // the line of code below evaluates before sendgmail return the string
         expect(newEmail).toEqual('Email cannot be sent')
         done()
     })
@@ -60,10 +57,10 @@ describe('Self-send an email message with and without /emails', () => {
 
         result = await request(app).post('/emails').send({
             service: 'gmail',
-            user: 'alexanderlschalk',
-            password: 'Hello@12345678',
-            sender: 'alexanderlschalk@gmail.com',
-            receiver: 'alexanderlschalk@gmail.com',
+            user: 'als',
+            password: 'myPassword',
+            sender: 'als@gmail.com',
+            receiver: 'als@gmail.com',
             userId: 24
         })
 

@@ -1,4 +1,4 @@
-import { CarRepository } from "../repository/CarRepository"
+import { CarRepository } from '../repository/CarRepository'
 
 export const createNewCar = async (lease: boolean, seats: number, year: number, make: string, model: string, trim: string, specs: string, userId: number) => {
     console.log('createNewCar called')

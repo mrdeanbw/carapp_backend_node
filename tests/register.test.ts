@@ -17,7 +17,7 @@ describe('POST /users/register - add new user to database table', () => {
     })
 
     afterAll(async () => {
-        //Delete the record
+        // Delete the record
         await userRepo.deleteUser('xxxxx@mail.com')
 
         await connection.close()

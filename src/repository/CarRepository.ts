@@ -3,7 +3,6 @@ import { Car } from '../entity/Car'
 
 @EntityRepository(Car)
 export class CarRepository extends Repository<Car> {
-
     async findByUserId(userId: number) {
         const foundCar = await getConnection()
             .createQueryBuilder(Car, 'vehicle')

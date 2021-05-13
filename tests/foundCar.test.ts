@@ -11,12 +11,12 @@ describe('find new car in database table', () => {
         connection = await createConnection()
         carRepo = new CarRepository()
 
-        //Insert the record
+        // Insert the record
         await carRepo.createCar(false, 4, 2000, 'Geo', 'Metro', '?', '?', null)
     })
 
     afterAll(async () => {
-        //Delete the record
+        // Delete the record
         await carRepo.deleteCar('Geo', 'Metro')
 
         await connection.close()
@@ -24,7 +24,7 @@ describe('find new car in database table', () => {
 
     test('Find new car that was inserted via make and model', async done => {
 
-        //Select the record
+        // Select the record
         const foundCar = await carRepo.findByMakeModel('Geo', 'Metro')
 
         expect(foundCar.lease).toBeFalsy()

@@ -11,12 +11,12 @@ describe('find new user in database table', () => {
         connection = await createConnection()
         userRepo = new UserRepository()
 
-        //Insert the record
+        // Insert the record
         await userRepo.createUser('harrypotter@email.com', 'Hogwarts', 'Harry', 'Potter', 0)
     })
 
     afterAll(async () => {
-        //Delete the record
+        // Delete the record
         await userRepo.deleteUser('harrypotter@email.com')
 
         await connection.close()

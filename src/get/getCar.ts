@@ -1,4 +1,4 @@
-import { CarRepository } from "../repository/CarRepository"
+import { CarRepository } from '../repository/CarRepository'
 
 export const getCar = async (userId: number) => {
 

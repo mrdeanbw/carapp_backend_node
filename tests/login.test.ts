@@ -15,12 +15,12 @@ describe('POST /users/authenticate - login test', () => {
         connection = await createConnection()
         userRepo = new UserRepository()
 
-        //Insert the record
+        // Insert the record
         await userRepo.createUser('person@gmail.com', 'secretpass', '', '', 0)
     })
 
     afterAll(async () => {
-        //Delete the record
+        // Delete the record
         await userRepo.deleteUser('person@gmail.com')
 
         await connection.close()

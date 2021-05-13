@@ -3,7 +3,6 @@ import { User } from '../entity/User'
 
 @EntityRepository(User)
 export class UserRepository extends Repository<User> {
-
     findByName(firstName: string, lastName: string) {
         return this.findOne({ firstName, lastName })
     }
@@ -37,7 +36,7 @@ export class UserRepository extends Repository<User> {
                 .values([
                     { email, password, firstName, lastName, license },
                 ])
-                .execute() //.catch
+                .execute() // .catch
         } catch {
             return 'could not create new user'
         }
