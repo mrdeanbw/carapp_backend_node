@@ -42,7 +42,7 @@ createConnection().then(async () => {
     const { username, password } = req.body
 
     const user = await login.getUser(username, password)
-    console.log(`from app.ts... user: ${user}`)
+    console.log(`from app.ts... user: ${ user }`)
 
     if (user) { // user exists in database table
       const { password, ...userWithoutPassword } = user
@@ -72,14 +72,14 @@ createConnection().then(async () => {
     console.log('===================================\nfrom app.ts... /vehicles endpoint')
 
     const yourCar = await addCar.createNewCar(
-      req.body.carData[0],
-      req.body.carData[1],
-      req.body.carData[2],
-      req.body.carData[3],
-      req.body.carData[4],
-      req.body.carData[5],
-      req.body.carData[6],
-      req.body.carData[7]
+      req.body.carData[ 0 ],
+      req.body.carData[ 1 ],
+      req.body.carData[ 2 ],
+      req.body.carData[ 3 ],
+      req.body.carData[ 4 ],
+      req.body.carData[ 5 ],
+      req.body.carData[ 6 ],
+      req.body.carData[ 7 ]
     )
 
     typeof (yourCar) === 'string' ? res.json(yourCar) : res.send('Vehicles event has been logged')
