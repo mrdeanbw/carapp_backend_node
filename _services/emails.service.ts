@@ -2,9 +2,8 @@
 const nodemailer = require('nodemailer')
 
 export const sendgmail = async (service: string, user: string, password: string, sender: string, receiver: string, emailMessage: string) => {
-
   if (service && user && password && sender && receiver && emailMessage) {
-    var transporter = nodemailer.createTransport({
+    const transporter = nodemailer.createTransport({
       service: service,
       auth: {
         user: user,
@@ -12,7 +11,7 @@ export const sendgmail = async (service: string, user: string, password: string,
       }
     })
 
-    var mailOptions = {
+    const mailOptions = {
       from: sender,
       to: receiver,
       subject: 'Your submitted vehicle information',
@@ -20,8 +19,8 @@ export const sendgmail = async (service: string, user: string, password: string,
     }
 
     transporter.sendMail(mailOptions, function (error, info) {
-      let message = error ? error : info.response
-      // console.log(message)
+      const message = error ? error : info.response
+      console.log(message)
     })
 
     return 'Email info validated'

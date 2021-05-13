@@ -1,33 +1,32 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
-import { User } from './User';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm'
+import { User } from './User'
 
 @Entity()
 export class Car {
+	@PrimaryGeneratedColumn()
+	id: number;
 
-    @PrimaryGeneratedColumn()
-    id: number;
+	@Column()
+	lease: boolean;
 
-    @Column()
-    lease: boolean;
+	@Column()
+	seats: number;
 
-    @Column()
-    seats: number;
+	@Column()
+	year: number;
 
-    @Column()
-    year: number;
+	@Column()
+	make: string;
 
-    @Column()
-    make: string;
+	@Column()
+	model: string;
 
-    @Column()
-    model: string;
+	@Column()
+	trim: string;
 
-    @Column()
-    trim: string;
+	@Column()
+	specs: string;
 
-    @Column()
-    specs: string;
-
-    @ManyToOne(type => User, user => user.id)
-    userId: number;
+	@ManyToOne(type => User, user => user.id)
+	userId: number;
 }

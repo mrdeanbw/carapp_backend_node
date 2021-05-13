@@ -61,7 +61,7 @@ createConnection().then(async () => {
       username, password, firstName, lastName, license
     )
 
-    if (regUser == 'Username/Email: ' + username + ' is already taken') {
+    if (regUser === 'Username/Email: ' + username + ' is already taken') {
       return res.status(400).json({ message: regUser })
     }
 

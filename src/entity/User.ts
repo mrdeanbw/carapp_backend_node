@@ -1,30 +1,29 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
-import { Car } from './Car';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm'
+import { Car } from './Car'
 
 @Entity()
 export class User {
+	@PrimaryGeneratedColumn()
+	id: number;
 
-    @PrimaryGeneratedColumn()
-    id: number;
+	@Column({ nullable: false })
+	email: string;
 
-    @Column({ nullable: false })
-    email: string;
+	@Column({ nullable: false })
+	password: string;
 
-    @Column({ nullable: false })
-    password: string;
+	// optional
+	@Column()
+	firstName: string;
 
-    // optional
-    @Column()
-    firstName: string;
+	// optional
+	@Column()
+	lastName: string;
 
-    // optional
-    @Column()
-    lastName: string;
+	// optional
+	@Column()
+	license: number;
 
-    // optional
-    @Column()
-    license: number;
-
-    @OneToMany(type => Car, car => car.userId)
-    cars: Car[];
+	@OneToMany(type => Car, car => car.userId)
+	cars: Car[];
 }
