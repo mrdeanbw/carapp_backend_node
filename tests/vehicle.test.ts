@@ -23,7 +23,7 @@ describe('POST /vehicles - add new car to database table', () => {
   })
 
   test('Register new car with valid credentials', async (done) => {
-    carData = [ false, 5, 2017, 'Volkswagen', 'Golf', 'TSI Wolfsburg Edition', '170 HP' ]
+    carData = [false, 5, 2017, 'Volkswagen', 'Golf', 'TSI Wolfsburg Edition', '170 HP']
 
     result = await request(app).post('/vehicles').send({
       carData
@@ -35,7 +35,7 @@ describe('POST /vehicles - add new car to database table', () => {
   })
 
   test('Register new car without carname', async (done) => {
-    carData = [ 'blah', 'five', '2017', 'Volkswagen', 'Golf', 'TSI Wolfsburg Edition', '170 HP' ]
+    carData = ['blah', 'five', '2017', 'Volkswagen', 'Golf', 'TSI Wolfsburg Edition', '170 HP']
     result = await request(app).post('/vehicles').send({
       carData
     })

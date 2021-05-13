@@ -15,7 +15,7 @@ describe('Self-send an email message with and without /emails', () => {
 
   const service = 'gmail'
   const user = 'als'
-  const password = ''
+  const emptypass = ''
   const sender = user + '@' + service + '.com'
   const receiver = sender
 
@@ -37,14 +37,14 @@ describe('Self-send an email message with and without /emails', () => {
   })
 
   test('Find car that belongs to user but do not provide email password', async (done) => {
-    newEmail = await sendgmail(service, user, password, sender, receiver, carMessage)
+    newEmail = await sendgmail(service, user, emptypass, sender, receiver, carMessage)
 
     expect(newEmail).toEqual('Email cannot be sent')
     done()
   })
 
   test('Find car that belongs to user then email', async (done) => {
-    let password = 'myPassword999'
+    const password = 'myPassword999'
     newEmail = await sendgmail(service, user, password, sender, receiver, carMessage)
 
     expect(newEmail).toEqual('Email info validated')
