@@ -12,6 +12,7 @@ describe('Self-send an email message with and without /emails', () => {
   let foundCar: any
   let newEmail: any
   let carMessage: any
+  let service = 'gmail', user = 'als', password = '', sender = user + '@' + service + '.com', receiver = sender
 
   beforeAll(async () => {
     connection = await createConnection()
@@ -30,21 +31,18 @@ describe('Self-send an email message with and without /emails', () => {
     await connection.close()
   })
 
-  test('Find car that belongs to user then email', async (done) => {
-    const service = 'gmail', user = 'als', password = 'myPassword', sender = user + '@' + service + '.com', receiver = sender
-
-    newEmail = await sendgmail(service, user, password, sender, receiver, carMessage)
-
-    expect(newEmail).toEqual('Email info validated')
-    done()
-  })
-
   test('Find car that belongs to user but do not provide email password', async (done) => {
-    const service = 'gmail', user = 'als', password = '', sender = user + '@' + service + '.com', receiver = sender
-
     newEmail = await sendgmail(service, user, password, sender, receiver, carMessage)
 
     expect(newEmail).toEqual('Email cannot be sent')
+    done()
+  })
+
+  test('Find car that belongs to user then email', async (done) => {
+    password = 'myPassword999'
+    newEmail = await sendgmail(service, user, password, sender, receiver, carMessage)
+
+    expect(newEmail).toEqual('Email info validated')
     done()
   })
 
@@ -52,7 +50,7 @@ describe('Self-send an email message with and without /emails', () => {
     result = await request(app).post('/emails').send({
       service: 'gmail',
       user: 'als',
-      password: 'myPassword',
+      password: 'secretPassword',
       sender: 'als@gmail.com',
       receiver: 'als@gmail.com',
       userId: 24

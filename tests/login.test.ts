@@ -31,7 +31,8 @@ describe('POST /users/authenticate - login test', () => {
       password: 'secretpass'
     })
 
-    expect(result.text).toBeTruthy
+    parsed = JSON.parse(result.text)
+    expect(parsed.email).toEqual('person@gmail.com')
     expect(result.status).toEqual(200)
     done()
   })

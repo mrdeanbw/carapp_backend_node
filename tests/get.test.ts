@@ -4,7 +4,6 @@ import * as request from 'supertest'
 
 // this test should work
 describe('GET /test - a simple api endpoint without TypeORM connection', () => {
-
   let endpoint: any
   let connection: any
 
