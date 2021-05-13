@@ -3,7 +3,6 @@ import { CarRepository } from '../src/repository/CarRepository'
 
 // test is expected to work
 describe('find new car in database table', () => {
-
   let connection: any
   let carRepo: any
 
@@ -23,7 +22,6 @@ describe('find new car in database table', () => {
   })
 
   test('Find new car that was inserted via make and model', async done => {
-
     // Select the record
     const foundCar = await carRepo.findByMakeModel('Geo', 'Metro')
 

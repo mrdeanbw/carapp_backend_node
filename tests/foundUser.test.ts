@@ -3,7 +3,6 @@ import { UserRepository } from '../src/repository/UserRepository'
 
 // test is expected to work
 describe('find new user in database table', () => {
-
   let connection: any
   let userRepo: any
 
@@ -23,7 +22,6 @@ describe('find new user in database table', () => {
   })
 
   test('Find new user that was inserted via email', async done => {
-
     // Find the inserted recard
     const foundUser = await userRepo.findByEmail('harrypotter@email.com')
 

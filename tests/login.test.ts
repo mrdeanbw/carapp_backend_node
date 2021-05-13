@@ -5,7 +5,6 @@ import { UserRepository } from '../src/repository/UserRepository'
 
 // login test is expected to work
 describe('POST /users/authenticate - login test', () => {
-
   let result: any
   let connection: any
   let userRepo: any
@@ -27,10 +26,9 @@ describe('POST /users/authenticate - login test', () => {
   })
 
   test('Login with valid credentials', async (done) => {
-
     result = await request(app).post('/users/authenticate').send({
       username: 'person@gmail.com',
-      password: 'secretpass',
+      password: 'secretpass'
     })
 
     expect(result.text).toBeTruthy
@@ -39,10 +37,9 @@ describe('POST /users/authenticate - login test', () => {
   })
 
   test('Login with invalid credentials', async (done) => {
-
     const result = await request(app).post('/users/authenticate').send({
       username: 'perosn@mgail.com',
-      password: 'sesretpass',
+      password: 'sesretpass'
     })
 
     parsed = JSON.parse(result.text)
@@ -52,10 +49,9 @@ describe('POST /users/authenticate - login test', () => {
   })
 
   test('Login with correct username but invalid password', async (done) => {
-
     const result = await request(app).post('/users/authenticate').send({
       username: 'person@gmail.com',
-      password: 'secretpadd',
+      password: 'secretpadd'
     })
 
     parsed = JSON.parse(result.text)

@@ -34,7 +34,7 @@ export class UserRepository extends Repository<User> {
         .insert()
         .into(User)
         .values([
-          { email, password, firstName, lastName, license },
+          { email, password, firstName, lastName, license }
         ])
         .execute() // .catch
     } catch {

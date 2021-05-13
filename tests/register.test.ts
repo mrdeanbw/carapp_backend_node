@@ -5,7 +5,6 @@ import { UserRepository } from '../src/repository/UserRepository'
 
 // login test is expected to work
 describe('POST /users/register - add new user to database table', () => {
-
   let result: any
   let connection: any
   let userRepo: any
@@ -24,7 +23,6 @@ describe('POST /users/register - add new user to database table', () => {
   })
 
   test('Register new user with valid credentials', async (done) => {
-
     result = await request(app).post('/users/register').send({
       username: 'xxxxx@mail.com',
       password: 'zzzzzzzzzzz',
@@ -39,7 +37,6 @@ describe('POST /users/register - add new user to database table', () => {
   })
 
   test('Register new user with existing username', async (done) => {
-
     result = await request(app).post('/users/register').send({
       username: 'xxxxx@mail.com',
       password: 'oooooooooooo',
@@ -55,7 +52,6 @@ describe('POST /users/register - add new user to database table', () => {
   })
 
   test('Register new user without password', async (done) => {
-
     result = await request(app).post('/users/register').send({
       username: 'qqqqqqqqqqqq',
       password: '', // table accepts empty string ''
@@ -71,7 +67,6 @@ describe('POST /users/register - add new user to database table', () => {
   })
 
   test('Register new user with invalid license', async (done) => {
-
     result = await request(app).post('/users/register').send({
       username: 'random@mail.com',
       password: 'password',

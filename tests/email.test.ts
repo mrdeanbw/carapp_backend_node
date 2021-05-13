@@ -6,7 +6,6 @@ import { CarRepository } from '../src/repository/CarRepository'
 
 // test is working as expected
 describe('Self-send an email message with and without /emails', () => {
-
   let result: any
   let connection: any
   let carRepo: any
@@ -32,8 +31,7 @@ describe('Self-send an email message with and without /emails', () => {
   })
 
   test('Find car that belongs to user then email', async (done) => {
-
-    let service = 'gmail', user = 'als', password = 'myPassword', sender = user + '@' + service + '.com', receiver = sender
+    const service = 'gmail', user = 'als', password = 'myPassword', sender = user + '@' + service + '.com', receiver = sender
 
     newEmail = await sendgmail(service, user, password, sender, receiver, carMessage)
 
@@ -42,8 +40,7 @@ describe('Self-send an email message with and without /emails', () => {
   })
 
   test('Find car that belongs to user but do not provide email password', async (done) => {
-
-    let service = 'gmail', user = 'als', password = '', sender = user + '@' + service + '.com', receiver = sender
+    const service = 'gmail', user = 'als', password = '', sender = user + '@' + service + '.com', receiver = sender
 
     newEmail = await sendgmail(service, user, password, sender, receiver, carMessage)
 
@@ -52,7 +49,6 @@ describe('Self-send an email message with and without /emails', () => {
   })
 
   test('Find car that belongs to user then email via /emails', async (done) => {
-
     result = await request(app).post('/emails').send({
       service: 'gmail',
       user: 'als',

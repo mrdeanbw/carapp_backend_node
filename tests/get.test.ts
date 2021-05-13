@@ -17,7 +17,6 @@ describe('GET /test - a simple api endpoint without TypeORM connection', () => {
   })
 
   test('simple API Request', async (done) => {
-
     endpoint = await request(app).get('/test')
 
     expect(endpoint.text).toEqual('test endpoint!')
@@ -27,7 +26,6 @@ describe('GET /test - a simple api endpoint without TypeORM connection', () => {
   })
 
   test('simple API Request 2', async (done) => {
-
     endpoint = await request(app).get('/test2')
 
     expect(endpoint.text).toEqual('test2 endpoint!')
