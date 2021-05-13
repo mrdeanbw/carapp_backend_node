@@ -15,7 +15,7 @@ const errorHandler = require('./_helpers/error-handler')
 const cors = require('cors')
 const app = express()
 
-app.get('/test', (res) => {
+app.get('/test', (req, res) => {
   res.send('test endpoint!')
 })
 
@@ -32,7 +32,7 @@ createConnection().then(async () => {
     console.log('Server started on 4000')
   })
 
-  app.get('/test2', (res) => {
+  app.get('/test2', (req, res) => {
     res.send('test2 endpoint!')
   })
 
@@ -42,7 +42,7 @@ createConnection().then(async () => {
     const { username, password } = req.body
 
     const user = await login.getUser(username, password)
-    console.log(`from app.ts... user: ${user}`)
+    console.log(`from app.ts... user: ${ user }`)
 
     if (user) { // user exists in database table
       const { password, ...userWithoutPassword } = user

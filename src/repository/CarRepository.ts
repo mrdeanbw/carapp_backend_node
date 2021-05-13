@@ -44,9 +44,7 @@ export class CarRepository extends Repository<Car> {
           { lease, seats, year, make, model, trim, specs, userId }
         ])
         .execute() // .catch
-      console.log('yes aaaaa')
     } catch {
-      console.log('nai aaaaa')
       return 'could not insert car data'
     }
     return car
