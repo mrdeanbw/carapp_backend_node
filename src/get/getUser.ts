@@ -7,7 +7,7 @@ export const getUser = async (email: string, password: string) => {
 
   const loginUser = await userRepo.findByEmailPass(email, password)
 
-  console.log(`from getUser.ts: ${ loginUser }`)
+  console.log(`from getUser.ts: ${loginUser}`)
 
   return loginUser
 }

@@ -42,7 +42,7 @@ createConnection().then(async () => {
     const { username, password } = req.body
 
     const user = await login.getUser(username, password)
-    console.log(`from app.ts... user: ${ user }`)
+    console.log(`from app.ts... user: ${user}`)
 
     if (user) { // user exists in database table
       const { password, ...userWithoutPassword } = user
