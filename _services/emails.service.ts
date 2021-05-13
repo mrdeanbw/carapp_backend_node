@@ -19,7 +19,7 @@ export const sendgmail = async (service: string, user: string, password: string,
     }
 
     transporter.sendMail(mailOptions, function (error, info) {
-      const message = error ? error : info.response
+      const message = error || info.response
       console.log(message)
     })
 
