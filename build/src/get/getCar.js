@@ -36,9 +36,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getCar = void 0;
 var CarRepository_1 = require("../repository/CarRepository");
-var getCar = function (userId) { return __awaiter(void 0, void 0, void 0, function () {
+exports.getCar = function (userId) { return __awaiter(void 0, void 0, void 0, function () {
     var carRepo, foundCar, carMessage;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -54,5 +53,4 @@ var getCar = function (userId) { return __awaiter(void 0, void 0, void 0, functi
         }
     });
 }); };
-exports.getCar = getCar;
 //# sourceMappingURL=getCar.js.map

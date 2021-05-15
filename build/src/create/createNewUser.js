@@ -36,10 +36,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createNewUser = void 0;
 var UserRepository_1 = require("../repository/UserRepository");
 // import bcrypt from 'bcryptjs'
-var createNewUser = function (email, password, firstName, lastName, license) { return __awaiter(void 0, void 0, void 0, function () {
+exports.createNewUser = function (email, password, firstName, lastName, license) { return __awaiter(void 0, void 0, void 0, function () {
     var userRepo, newUser, _a;
     return __generator(this, function (_b) {
         switch (_b.label) {
@@ -67,5 +66,4 @@ var createNewUser = function (email, password, firstName, lastName, license) { r
         }
     });
 }); };
-exports.createNewUser = createNewUser;
 //# sourceMappingURL=createNewUser.js.map

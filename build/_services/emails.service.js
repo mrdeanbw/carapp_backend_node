@@ -36,10 +36,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sendgmail = void 0;
 // sendgmail.js
 var nodemailer = require('nodemailer');
-var sendgmail = function (service, user, password, sender, receiver, emailMessage) { return __awaiter(void 0, void 0, void 0, function () {
+exports.sendgmail = function (service, user, password, sender, receiver, emailMessage) { return __awaiter(void 0, void 0, void 0, function () {
     var transporter, mailOptions;
     return __generator(this, function (_a) {
         if (service && user && password && sender && receiver && emailMessage) {
@@ -68,5 +67,4 @@ var sendgmail = function (service, user, password, sender, receiver, emailMessag
         return [2 /*return*/];
     });
 }); };
-exports.sendgmail = sendgmail;
 //# sourceMappingURL=emails.service.js.map

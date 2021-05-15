@@ -36,10 +36,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getUser = void 0;
 var UserRepository_1 = require("../repository/UserRepository");
 var userRepo = new UserRepository_1.UserRepository();
-var getUser = function (email, password) { return __awaiter(void 0, void 0, void 0, function () {
+exports.getUser = function (email, password) { return __awaiter(void 0, void 0, void 0, function () {
     var loginUser;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -53,5 +52,4 @@ var getUser = function (email, password) { return __awaiter(void 0, void 0, void
         }
     });
 }); };
-exports.getUser = getUser;
 //# sourceMappingURL=getUser.js.map

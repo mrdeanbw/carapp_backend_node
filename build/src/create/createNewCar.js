@@ -36,9 +36,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createNewCar = void 0;
 var CarRepository_1 = require("../repository/CarRepository");
-var createNewCar = function (lease, seats, year, make, model, trim, specs, userId) { return __awaiter(void 0, void 0, void 0, function () {
+exports.createNewCar = function (lease, seats, year, make, model, trim, specs, userId) { return __awaiter(void 0, void 0, void 0, function () {
     var carRepo, newcar;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -54,5 +53,4 @@ var createNewCar = function (lease, seats, year, make, model, trim, specs, userI
         }
     });
 }); };
-exports.createNewCar = createNewCar;
 //# sourceMappingURL=createNewCar.js.map

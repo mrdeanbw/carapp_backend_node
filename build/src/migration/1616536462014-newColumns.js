@@ -36,7 +36,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.newColumns1616536462014 = void 0;
 var newColumns1616536462014 = /** @class */ (function () {
     function newColumns1616536462014() {
         this.name = 'newColumns1616536462014';
